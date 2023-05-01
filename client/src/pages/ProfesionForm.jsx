@@ -9,6 +9,7 @@ export default function ProfesionForm() {
         //inicializa las variables
         initialValues={{
           profesion: "",
+          eliminado: "0",
         }}
         onSubmit={async (values) => {
           console.log(values);
