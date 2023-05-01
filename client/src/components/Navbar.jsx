@@ -12,6 +12,16 @@ function Navbar() {
             Home
           </Link>
         </li>
+        <li>
+          <Link to="/profesiones">
+            Profesiones
+          </Link>
+        </li>
+        <li>
+          <Link to="/profesiones/new">
+            Nueva Profesion
+          </Link>
+        </li>
       </ul>
     </div>
   );

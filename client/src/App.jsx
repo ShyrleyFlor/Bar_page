@@ -1,12 +1,16 @@
  
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
         
 
 import Home from "./pages/Home";
-
+import ProfesionForm from "./pages/ProfesionForm";
+import PageProfesion from "./pages/PageProfesion";
 import NotFound from "./pages/NotFound";
+
+
 
 function App() {
 
@@ -14,14 +18,12 @@ function App() {
   return (
 
       <div>
+        <Navbar />
           <Routes>
-           {/*  
-            <Route path="/new" element={<TaskForm />} />
-            <Route path="/edit/:id" element={<TaskForm />} />
-            */}
+          <Route path="/profesiones" element={<PageProfesion />} />
+          <Route path="/profesiones/new" element={<ProfesionForm />} />
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
-            <Route path="/1" element={<NotFound />} />
           </Routes>
     </div>
   );
