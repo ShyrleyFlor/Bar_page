@@ -1,9 +1,8 @@
 import axios from "axios";
 
-const getProfesiones = async () => {
-  const response = await axios.get("http://localhost:4000/profesion");
-  return response;
-}
+const getProfesiones = async () => await axios.get("http://localhost:4000/profesion");
+  
+
 
 const createProfesion = async (profesion) => {
   const response = await axios.post("http://localhost:4000/profesion", profesion);

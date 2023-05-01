@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 
 export const getProfesion = async (req, res) => {
   const [result] = await pool.query(
-    "SELECT profesion FROM profesion WHERE id = ?",
+    "SELECT * FROM profesion WHERE id = ?",
     [req.params.id]
   );
   if (result.length === 0)
@@ -14,7 +14,7 @@ export const getProfesion = async (req, res) => {
 
 export const getProfesiones = async (req, res) => {
   const [result] = await pool.query(
-    "SELECT profesion FROM profesion ORDER BY id Asc"
+    "SELECT * FROM profesion where eliminado = 0"
   );
 
   res.json(result);

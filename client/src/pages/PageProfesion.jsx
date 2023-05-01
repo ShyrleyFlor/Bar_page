@@ -10,6 +10,7 @@ function PageProfesion() {
     async function CargaProfesiones() {
       const response = await getProfesiones();
       setProfesiones(response.data);
+      console.log(response);
     }
     CargaProfesiones();
   }, []);
