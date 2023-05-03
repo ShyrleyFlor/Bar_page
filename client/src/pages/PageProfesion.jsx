@@ -1,16 +1,13 @@
 import React from "react";
-import { useEffect, useState } from "react";
-import { getProfesiones } from "../api/profesion.api";
+import { useEffect } from "react";
 import ProfesionItem from "../components/ProfesionItem";
+import { useProfesiones } from "../context/Context";
 
 function PageProfesion() {
-  const [profesiones, setProfesiones] = useState([]);
+  const{profesiones, setProfesiones, CargaProfesiones} = useProfesiones();
 
   useEffect(() => {
-    async function CargaProfesiones() {
-      const response = await getProfesiones();
-      setProfesiones(response.data);
-    }
+
     CargaProfesiones();
   }, []);
 

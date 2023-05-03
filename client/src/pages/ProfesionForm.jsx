@@ -1,8 +1,11 @@
 import React from "react";
 import { Form, Formik } from "formik";
-import { createProfesion } from "../api/profesion.api";
+import { useProfesiones } from "../context/Context";
+
 
 export default function ProfesionForm() {
+
+  const { createProfesionn } = useProfesiones();
   return (
     <div>
       <Formik
@@ -12,13 +15,9 @@ export default function ProfesionForm() {
         }}
         onSubmit={async (values, actions) => {
           console.log(values);
-          try {
-            const response = await createProfesion(values);
-            console.log(response);
-            actions.resetForm();
-          } catch (error) {
-            console.log(error);
-          }
+          await createProfesionn(values);
+          actions.resetForm();
+
         }}
       >
         {({ handleChange, handleSubmit,values }) => (
