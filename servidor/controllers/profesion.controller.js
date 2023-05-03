@@ -23,7 +23,7 @@ export const getProfesiones = async (req, res) => {
 export const createProfesion = async (req, res) => {
   const { profesion } = req.body;
   const [result] = await pool.query(
-    "INSERT INTO profesion(profesion) VALUES (?)",
+    "INSERT INTO `profesion` (`profesion`,`eliminado`) VALUES (?,'0')",
     [profesion]
   );
   console.log(result);
