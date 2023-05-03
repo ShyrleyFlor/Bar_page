@@ -7,6 +7,7 @@ export const getProfesion = async (req, res) => {
     "SELECT * FROM profesion WHERE id = ?",
     [req.params.id]
   );
+  //por si la profesion solicitada no existe
   if (result.length === 0)
     return res.status(404).json({ message: "Profesion no encontrada" });
 
@@ -57,6 +58,8 @@ export const deleteProfesion = async (req, res) => {
   //por si lo que se desea eliminar no existe
   if (result.affectedRows === 0)
     return res.status(404).json({ message: "Profesion no encontrada" });
+  //hacemos un select para saber el resultado de eliminado  
+  //y este resultado lo guardamos en la variable compara  
   const compara = await pool.query(
     "SELECT `eliminado` FROM `profesion` WHERE id = ?",
     [req.params.id]
