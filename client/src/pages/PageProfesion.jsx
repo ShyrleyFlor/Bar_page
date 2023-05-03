@@ -10,18 +10,23 @@ function PageProfesion() {
     async function CargaProfesiones() {
       const response = await getProfesiones();
       setProfesiones(response.data);
-      console.log(response);
     }
     CargaProfesiones();
   }, []);
+
+  function renderProfesiones() {
+    if (profesiones.length === 0) {
+      return <p>No hay profesiones</p>;
+    }
+    return profesiones.map((profesion) => <ProfesionItem key={profesion.id} profesion={profesion} />);
+  }
+  
 
   return (
     <>
       <h1>PageProfesion</h1>
 
-      {profesiones.map(profesion => (
-        <ProfesionItem key={profesion.id} profesion={profesion} />
-      ))}
+      {renderProfesiones()}
     </>
   );
 }

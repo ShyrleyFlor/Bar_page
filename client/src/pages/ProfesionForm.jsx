@@ -9,19 +9,19 @@ export default function ProfesionForm() {
         //inicializa las variables
         initialValues={{
           profesion: "",
-          eliminado: "0",
         }}
-        onSubmit={async (values) => {
+        onSubmit={async (values, actions) => {
           console.log(values);
           try {
             const response = await createProfesion(values);
             console.log(response);
+            actions.resetForm();
           } catch (error) {
             console.log(error);
           }
         }}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit,values }) => (
           <Form onSubmit={handleSubmit}>
             <label>profesion</label>
             <input
@@ -29,6 +29,7 @@ export default function ProfesionForm() {
               name="profesion"
               placeholder="Escriba una profesion"
               onChange={handleChange}
+              value={values.profesion}
             />
             <button type="submit">Enviar</button>
           </Form>
