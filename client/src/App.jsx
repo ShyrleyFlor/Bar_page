@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import {ProfesionContextProvider} from "./context/Context";
 
         
 
@@ -16,8 +17,7 @@ function App() {
 
 
   return (
-
-      <div>
+      <ProfesionContextProvider>
         <Navbar />
           <Routes>
           <Route path="/profesiones" element={<PageProfesion />} />
@@ -25,7 +25,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-    </div>
+    </ProfesionContextProvider>
   );
 }
 
