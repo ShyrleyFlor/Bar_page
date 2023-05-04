@@ -28,6 +28,7 @@ export const ProfesionContextProvider = ({ children }) => {
   const deleteProfesion = async (id) => {
     try {
         console.log("hola-1");
+        console.log(id);
 
       const res = await deleteProfesionApi(id);
       //Para recargar las profesiones que se eliminaron
