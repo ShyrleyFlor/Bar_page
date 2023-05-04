@@ -37,7 +37,10 @@ export const ProfesionContextProvider = ({ children }) => {
       console.log("hola-2");
 
       setProfesiones(
-        profesiones.filter((profesion) => profesion.eliminado !== "0")
+
+        profesiones.filter((profesion) => profesion.eliminado !== "0"),
+        console.log(profesion.eliminado)
+
       );
       console.log(res);
     } catch (error) {
