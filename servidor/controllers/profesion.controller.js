@@ -48,12 +48,14 @@ export const updateProfesion = async (req, res) => {
 
 // creamos la funcion de eliminar una profesion
 export const deleteProfesion = async (req, res) => {
+  const id = req.params.id;
+  const newData = {eliminado: '1'};
   const [result] = await pool.query(
     //hacemos una actualizacion en nuestra variable eliminar la profesion
     //si eliminado es 0 entonces la profesion no fue eliminada
     //si es igual a 1 entonces la profesion fue eliminada
-    "UPDATE `profesion` SET `eliminado`='1' WHERE id = ?",
-    [req.params.id]
+    "UPDATE `profesion` SET ? WHERE id = ?",
+    [newData, id]
   );
   //por si lo que se desea eliminar no existe
   if (result.affectedRows === 0)
@@ -67,7 +69,6 @@ export const deleteProfesion = async (req, res) => {
   //por si la funcion ya fue eliminada
   if (compara && compara.length > 0) {
     const eliminado = compara[0].eliminado;
-
     return res.status(400).json({ message: "Profesion Eliminada" });
   }
 };
