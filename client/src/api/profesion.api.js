@@ -1,11 +1,15 @@
 import axios from "axios";
 
-const getProfesiones = async () => await axios.get("http://localhost:4000/profesion");
+const getProfesionesApi = async () => await axios.get("http://localhost:4000/profesion");
   
 
-const createProfesion = async (profesion) => await axios.post("http://localhost:4000/profesion", profesion);
+const createProfesionApi = async (profesion) => await axios.post("http://localhost:4000/profesion", profesion);
   
-const deleteProfesion = async (id) => await axios.delete(`http://localhost:4000/profesion/${id}`);
+const deleteProfesionApi = async (id) => await axios.delete(`http://localhost:4000/profesion/${id}`);
+
+const getProfesionApi = async (id) => await axios.get(`http://localhost:4000/profesion/${id}`);
+
+const updateProfesionApi = async (id, newprofesion) => await axios.put(`http://localhost:4000/profesion/${id}`, newprofesion);
 
 
-export { createProfesion, getProfesiones, deleteProfesion };
+export { createProfesionApi, getProfesionesApi, deleteProfesionApi, getProfesionApi, updateProfesionApi };
