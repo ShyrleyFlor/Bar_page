@@ -57,6 +57,7 @@ export const deleteProfesion = async (req, res) => {
     "UPDATE `profesion` SET ? WHERE id = ?",
     [newData, id]
   );
+  res.json(result);
   //por si lo que se desea eliminar no existe
   if (result.affectedRows === 0)
     return res.status(404).json({ message: "Profesion no encontrada" });
