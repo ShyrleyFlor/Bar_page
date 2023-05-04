@@ -1,4 +1,6 @@
 import { createContext, useContext, useState } from "react";
+
+
 import {
   getProfesionesApi,
   deleteProfesionApi,
@@ -35,13 +37,9 @@ export const ProfesionContextProvider = ({ children }) => {
       //profesiones.filter((profesion) => profesion.id !== id);
       //en nuestro caso no se elimina la profesion sino se cambia el estado
       console.log("hola-2");
-
-      setProfesiones(
-
-        profesiones.filter((profesion) => profesion.eliminado !== "0"),
-        console.log(profesion.eliminado)
-
-      );
+      window.location.reload();
+    //  setProfesiones(
+    //profesiones.filter(profesion => profesion.eliminado !== '1'));
       console.log(res);
     } catch (error) {
       console.log(error);
@@ -91,3 +89,6 @@ export const ProfesionContextProvider = ({ children }) => {
     </Context.Provider>
   );
 };
+
+
+

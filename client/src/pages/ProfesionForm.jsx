@@ -35,8 +35,11 @@ export default function ProfesionForm() {
           if (params.id) {
             await updateProfesion(params.id, values);
             navigate("/profesiones");
+            window.location.reload();
           }else{
             await createProfesion(values);
+            navigate("/profesiones");
+            window.location.reload();
           }
           setProfesion({
             profesion: "",
