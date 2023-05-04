@@ -67,8 +67,8 @@ export const deleteProfesion = async (req, res) => {
     [req.params.id]
   );
   //por si la funcion ya fue eliminada
-  if (compara && compara.length > 0) {
+  /*if (compara && compara.length > 0) {
     const eliminado = compara[0].eliminado;
     return res.status(400).json({ message: "Profesion Eliminada" });
-  }
+  }*/
 };
