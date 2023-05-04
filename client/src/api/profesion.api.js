@@ -5,7 +5,7 @@ const getProfesionesApi = async () => await axios.get("http://localhost:4000/pro
 
 const createProfesionApi = async (profesion) => await axios.post("http://localhost:4000/profesion", profesion);
   
-const deleteProfesionApi = async (id) => await axios.delete(`http://localhost:4000/profesion/${id}`);
+const deleteProfesionApi = async (id) => await axios.patch(`http://localhost:4000/profesion/${id}`);
 
 const getProfesionApi = async (id) => await axios.get(`http://localhost:4000/profesion/${id}`);
 
