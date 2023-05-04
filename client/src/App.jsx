@@ -22,6 +22,8 @@ function App() {
           <Routes>
           <Route path="/profesiones" element={<PageProfesion />} />
           <Route path="/profesiones/new" element={<ProfesionForm />} />
+          <Route path="/profesiones/:id" element={<ProfesionForm />} />
+
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

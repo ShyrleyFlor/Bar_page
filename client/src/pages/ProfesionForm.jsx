@@ -1,26 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import { useProfesiones } from "../context/Context";
-
+import { useParams, useNavigate } from "react-router-dom";
 
 export default function ProfesionForm() {
+  const { createProfesion, getProfesion, updateProfesion } = useProfesiones();
+  const [profesion, setProfesion] = useState({
+    profesion: "",
+  });
+  const params = useParams();
+  const navigate = useNavigate();
 
-  const { createProfesionn } = useProfesiones();
+  useEffect(() => {
+    const loadProfesion = async () => {
+      if (params.id) {
+        const profesion = await getProfesion(params.id);
+        setProfesion({
+          profesion: profesion.profesion,
+        });
+      }
+    };
+    loadProfesion();
+  }, []);
+
   return (
     <div>
+      <h1>{params.id ? "Editar Profesion" : "Crear Profesion"}</h1>
       <Formik
         //inicializa las variables
-        initialValues={{
-          profesion: "",
-        }}
+        initialValues={profesion}
+        enableReinitialize={true}
         onSubmit={async (values, actions) => {
           console.log(values);
-          await createProfesionn(values);
-          actions.resetForm();
-
+          if (params.id) {
+            await updateProfesion(params.id, values);
+            navigate("/profesiones");
+          }else{
+            await createProfesion(values);
+          }
+          setProfesion({
+            profesion: "",
+          })
         }}
       >
-        {({ handleChange, handleSubmit,values }) => (
+        {({ handleChange, handleSubmit, values }) => (
           <Form onSubmit={handleSubmit}>
             <label>profesion</label>
             <input
