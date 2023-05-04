@@ -15,6 +15,6 @@ router.get("/profesion/:id", getProfesion);
 router.post("/profesion", createProfesion);
 router.put("/profesion/:id", updateProfesion);
 
-router.delete("/profesion/:id", deleteProfesion);
+router.patch("/profesion/:id", deleteProfesion);
 
 export default router;
