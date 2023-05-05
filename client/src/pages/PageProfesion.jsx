@@ -4,7 +4,7 @@ import ProfesionItem from "../components/ProfesionItem";
 import { useProfesiones } from "../context/Context";
 
 function PageProfesion() {
-  const{profesiones, setProfesiones, CargaProfesiones} = useProfesiones();
+  const{profesiones, CargaProfesiones} = useProfesiones();
 
   useEffect(() => {
 
