@@ -8,6 +8,7 @@ import { PORT } from './config.js';
 import indexRoutes from './routes/index.routes.js';
 import profesionRoutes from './routes/profesion.routes.js';
 import barrioRoutes from './routes/barrio.routes.js';
+import ciudadRoutes from './routes/ciudad.routes.js';
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use(express.json());
 app.use(indexRoutes);
 app.use(profesionRoutes);
 app.use(barrioRoutes);
+app.use(ciudadRoutes);
 
 //escuchamos el puerto y mandamos un mensaje de donde lo estamos escuchando
 app.listen(PORT);
