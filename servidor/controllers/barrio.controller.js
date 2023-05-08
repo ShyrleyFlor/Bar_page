@@ -3,7 +3,7 @@ import { pool } from "../db.js";
 
 export const getBarrios = async (req, res) => {
   try {
-    const [result] = await pool.query("SELECT * FROM barrio ORDER BY id ASC");
+    const [result] = await pool.query("SELECT * FROM barrio where eliminado = 0 ORDER BY id ASC");
        res.json(result);
   } catch (error) {
     return res.status(500).json({
