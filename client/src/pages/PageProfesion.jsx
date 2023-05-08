@@ -1,13 +1,12 @@
 import React from "react";
 import { useEffect } from "react";
 import ProfesionItem from "../components/ProfesionItem";
-import { useProfesiones } from "../context/Context";
+import { useProfesiones } from "../context/ProfesionContext";
 
 function PageProfesion() {
-  const{profesiones, setProfesiones, CargaProfesiones} = useProfesiones();
+  const{profesiones, CargaProfesiones} = useProfesiones();
 
   useEffect(() => {
-
     CargaProfesiones();
   }, []);
 

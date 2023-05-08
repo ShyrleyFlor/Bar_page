@@ -1,6 +1,6 @@
 import React from "react";
-import { useProfesiones } from "../context/Context";
 import { useNavigate } from "react-router-dom";
+import { useProfesiones } from "../context/ProfesionContext";
 
 function ProfesionItem({profesion}) {
 

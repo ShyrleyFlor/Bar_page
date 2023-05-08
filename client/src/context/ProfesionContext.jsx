@@ -9,10 +9,10 @@ import {
   updateProfesionApi
 } from "../api/profesion.api";
 
-export const Context = createContext();
+export const ProfesionContext = createContext();
 
 export const useProfesiones = () => {
-  const context = useContext(Context);
+  const context = useContext(ProfesionContext);
   if (!context) {
     throw new Error("useProfesion must be used within a ProfesionProvider");
   }
@@ -29,14 +29,12 @@ export const ProfesionContextProvider = ({ children }) => {
 
   const deleteProfesion = async (id) => {
     try {
-        console.log("hola-1");
         console.log(id);
 
       const res = await deleteProfesionApi(id);
       //Para recargar las profesiones que se eliminaron
       //profesiones.filter((profesion) => profesion.id !== id);
       //en nuestro caso no se elimina la profesion sino se cambia el estado
-      console.log("hola-2");
       window.location.reload();
     //  setProfesiones(
     //profesiones.filter(profesion => profesion.eliminado !== '1'));
@@ -74,7 +72,7 @@ export const ProfesionContextProvider = ({ children }) => {
   }
 
   return (
-    <Context.Provider
+    <ProfesionContext.Provider
       value={{
         profesiones,
         setProfesiones,
@@ -86,9 +84,6 @@ export const ProfesionContextProvider = ({ children }) => {
       }}
     >
       {children}
-    </Context.Provider>
+    </ProfesionContext.Provider>
   );
 };
-
-
-

@@ -10,7 +10,7 @@ import {
     updateCiudad,
     deleteCiudad
 } from "../controllers/ciudad.controller.js";
-    router.get("/ciudades", getCiudades);  
+    router.get("/ciudad", getCiudades);  
     router.get("/ciudad/:id", getCiudad);
     router.post("/ciudad", createCiudad);
     router.put("/ciudad/:id", updateCiudad);
