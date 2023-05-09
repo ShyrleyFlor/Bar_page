@@ -17,6 +17,8 @@ import PageProfesion from "./pages/PageProfesion";
 import PageBarrio from "./pages/PageBarrio";
 import PageCiudad from "./pages/PageCiudad";
 import NotFound from "./pages/NotFound";
+import Nar from "./components/Nar";
+import CustomizedMenus from "./components/CustomizedMenus";
 
 
 
@@ -27,7 +29,8 @@ function App() {
       <ProfesionContextProvider>
       <CiudadContextProvider>
         <BarrioContextProvider>
-        <Navbar />
+          <Nar/>
+          
           <Routes>
           <Route path="/profesiones" element={<PageProfesion />} />
           <Route path="/Barrios" element={<PageBarrio />} />

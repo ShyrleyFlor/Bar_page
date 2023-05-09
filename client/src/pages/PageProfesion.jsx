@@ -20,7 +20,7 @@ function PageProfesion() {
 
   return (
     <>
-      <h1>PageProfesion</h1>
+      <h1>Profesiones</h1>
 
       {renderProfesiones()}
     </>
