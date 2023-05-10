@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import { useCiudades } from "../context/CiudadContext";
 import { useParams, useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import Box from "@mui/material/Box";
+import Input from "@mui/material/Input";
 
 export default function CiudadForm() {
   const { createCiudad, getCiudad, updateCiudad } = useCiudades();
@@ -26,6 +30,7 @@ export default function CiudadForm() {
   return (
     <div>
       <h1>{params.id ? "Editar Ciudad" : "Crear Ciudad"}</h1>
+      <Box margin={2}>
       <Formik
         initialValues={ciudad}
         enableReinitialize={true}
@@ -44,18 +49,19 @@ export default function CiudadForm() {
       >
         {({ handleChange, handleSubmit, values }) => (
           <Form onSubmit={handleSubmit}>
-            <label htmlFor="ciudad">Ciudad</label>
-            <input
+            
+            <Input
               type="text"
               name="ciudad"
-              placeholder="Escribe el nombre de la Ciudad"
+              placeholder="Escribe una Ciudad"
               onChange={handleChange}
               value={values.ciudad}
             />
-            <button type="submit">Guardar</button>
+            <Button endIcon={<SendIcon />} type="submit">Guardar</Button>
           </Form>
         )}
       </Formik>
+      </Box>
     </div>
   );
 }

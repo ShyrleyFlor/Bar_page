@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Form, Formik } from "formik";
 import { useProfesiones } from "../context/ProfesionContext";
 import { useParams, useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button";
+import SendIcon from "@mui/icons-material/Send";
+import Box from "@mui/material/Box";
+import Input from "@mui/material/Input";
 
 export default function ProfesionForm() {
   const { createProfesion, getProfesion, updateProfesion } = useProfesiones();
@@ -26,38 +30,42 @@ export default function ProfesionForm() {
   return (
     <div>
       <h1>{params.id ? "Editar Profesion" : "Crear Profesion"}</h1>
-      <Formik
-        //inicializa las variables
-        initialValues={profesion}
-        enableReinitialize={true}
-        onSubmit={async (values) => {
-          console.log(values);
-          if (params.id) {
-            await updateProfesion(params.id, values);
-          }else{
-            await createProfesion(values);
-          }
-          navigate("/profesiones");
-          window.location.reload();
-          setProfesion({
-            profesion: "",
-          })
-        }}
-      >
-        {({ handleChange, handleSubmit, values }) => (
-          <Form onSubmit={handleSubmit}>
-            <label>profesion</label>
-            <input
-              type="text"
-              name="profesion"
-              placeholder="Escriba una profesion"
-              onChange={handleChange}
-              value={values.profesion}
-            />
-            <button type="submit">Enviar</button>
-          </Form>
-        )}
-      </Formik>
+      <Box margin={2}>
+        <Formik
+          //inicializa las variables
+          initialValues={profesion}
+          enableReinitialize={true}
+          onSubmit={async (values) => {
+            console.log(values);
+            if (params.id) {
+              await updateProfesion(params.id, values);
+            } else {
+              await createProfesion(values);
+            }
+            navigate("/profesiones");
+            window.location.reload();
+            setProfesion({
+              profesion: "",
+            });
+          }}
+        >
+          {({ handleChange, handleSubmit, values }) => (
+            <Form onSubmit={handleSubmit}>
+              <Input
+                type="text"
+                name="profesion"
+                placeholder="Escriba una Profesion"
+                onChange={handleChange}
+                value={values.profesion}
+              />
+
+              <Button endIcon={<SendIcon />} type="submit">
+                Enviar
+              </Button>
+            </Form>
+          )}
+        </Formik>
+      </Box>
     </div>
   );
 }

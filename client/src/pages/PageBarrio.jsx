@@ -2,6 +2,8 @@ import React from "react";
 import { useEffect } from "react";
 import BarrioItem from "../components/BarrioItem";
 import { useBarrios } from "../context/BarrioContext";
+import Box from "@mui/material/Box";
+
 
 export default function PageBarrio() {
   const { barrios, CargaBarrios } = useBarrios();
@@ -21,7 +23,7 @@ export default function PageBarrio() {
   return (
     <>
       <h1>Barrios</h1>
-      {renderBarrio()}
+      <Box mt={2}>{renderBarrio()}</Box>
     </>
   );
 }

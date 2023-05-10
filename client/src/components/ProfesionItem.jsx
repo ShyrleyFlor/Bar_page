@@ -1,20 +1,38 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useProfesiones } from "../context/ProfesionContext";
+import Button from "@mui/material/Button";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import Stack from "@mui/material/Stack";
+import Box from "@mui/material/Box";
 
-function ProfesionItem({profesion}) {
-
+function ProfesionItem({ profesion }) {
   const { deleteProfesion } = useProfesiones();
   const navigate = useNavigate();
 
-
   return (
-    <div>
+    <Box margin={2}>
       <h3>{profesion.profesion}</h3>
-      <h3>{profesion.id}</h3>
-      <button onClick={()=>deleteProfesion(profesion.id) }>Eliminar</button>
-      <button onClick={()=> navigate(`/profesiones/${profesion.id}`)} >Editar</button>
-    </div>
+      <Stack spacing={2} direction="row">
+        <Button
+          onClick={() => deleteProfesion(profesion.id)}
+          variant="contained"
+          size="small"
+          startIcon={<DeleteIcon />}
+        >
+          Eliminar
+        </Button>
+        <Button
+          onClick={() => navigate(`/profesiones/${profesion.id}`)}
+          variant="contained"
+          size="small"
+          startIcon={<EditIcon />}
+        >
+          Editar
+        </Button>
+      </Stack>
+    </Box>
   );
 }
 
