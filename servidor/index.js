@@ -9,6 +9,8 @@ import indexRoutes from './routes/index.routes.js';
 import profesionRoutes from './routes/profesion.routes.js';
 import barrioRoutes from './routes/barrio.routes.js';
 import ciudadRoutes from './routes/ciudad.routes.js';
+import funcionarioRoutes from './routes/funcionario.routes.js';
+import clienteRoutes from './routes/cliente.routes.js';
 
 const app = express();
 
@@ -21,6 +23,8 @@ app.use(indexRoutes);
 app.use(profesionRoutes);
 app.use(barrioRoutes);
 app.use(ciudadRoutes);
+app.use(funcionarioRoutes);
+app.use(clienteRoutes);
 
 //escuchamos el puerto y mandamos un mensaje de donde lo estamos escuchando
 app.listen(PORT);
