@@ -36,7 +36,7 @@ export const createCliente = async (req, res) => {
     try{
         const{nombre, RUC, fechaNac, direccion, barrioID, ciudadID, profesionID, telefono, deuda, funcionarioID, modificadoPor, ci, factura, mail} = req.body;
         const [result] = await pool.query(
-            "INSERT INTO `clientes` (`nombre`,`RUC`,`fechaNac`,`direccion`,`barrioID`,`ciudadID`,`profesionID`,`telefono`,`deuda`,`funcionarioID`,`modificadoPor`,`ci`,`factura`,`mail`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+            "INSERT INTO `clientes` (`nombre`,`RUC`,`fechaNac`,`direccion`,`barrioID`,`ciudadID`,`profesionID`,`telefono`,`deuda`,`funcionarioID`,`modificadoPor`,`ci`,`factura`,`mail`,`eliminado` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,'0')",
             [nombre, RUC, fechaNac, direccion, barrioID, ciudadID, profesionID, telefono, deuda, funcionarioID, modificadoPor, ci, factura, mail]
         )
 
