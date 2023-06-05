@@ -33,6 +33,8 @@ function Nar() {
           <Button href='/Barrios' color="inherit">Barrio</Button>
           <Button href='/Ciudades' color="inherit">Ciudad</Button>
           <Button href="/profesiones" color="inherit">Profesion</Button>
+          <Button href="/funcionarios" color="inherit">Funcionario</Button>
+          <Button href="/clientes" color="inherit">Cliente</Button>
           <CustomizedMenus/>
         </Toolbar>
       </AppBar>
