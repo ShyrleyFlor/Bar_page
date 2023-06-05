@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useBarrios } from "../context/BarrioContext";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import { useBarrios } from "../context/BarrioContext";
 
 export default function BarrioItem({ barrio }) {
   const navigate = useNavigate();
