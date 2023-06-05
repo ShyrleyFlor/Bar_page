@@ -1,8 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
+import Box from "@mui/material/Box";
 import BarrioItem from "../components/BarrioItem";
 import { useBarrios } from "../context/BarrioContext";
-import Box from "@mui/material/Box";
 
 
 export default function PageBarrio() {

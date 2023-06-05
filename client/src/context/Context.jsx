@@ -1,6 +1,8 @@
 import { ProfesionContextProvider } from "../context/ProfesionContext";
 import { CiudadContextProvider } from "../context/CiudadContext";
 import { BarrioContextProvider } from "../context/BarrioContext";
+import { FuncionarioContextProvider } from "./FuncionarioContext";
+import { ClienteContextProvider } from "./ClienteContext";
 import { createContext } from "react";
 
 export const Context = createContext();
@@ -15,10 +17,14 @@ export const use = () => {
 
 export const ContextProvider = ({ children }) => {
   return (
-    <ProfesionContextProvider>
-      <CiudadContextProvider>
-        <BarrioContextProvider>{children}</BarrioContextProvider>
-      </CiudadContextProvider>
-    </ProfesionContextProvider>
+    <ClienteContextProvider>
+      <FuncionarioContextProvider>
+        <ProfesionContextProvider>
+          <CiudadContextProvider>
+            <BarrioContextProvider>{children}</BarrioContextProvider>
+          </CiudadContextProvider>
+        </ProfesionContextProvider>
+      </FuncionarioContextProvider>
+    </ClienteContextProvider>
   );
 };

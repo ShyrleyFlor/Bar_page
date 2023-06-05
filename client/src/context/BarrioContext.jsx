@@ -70,7 +70,7 @@ export const BarrioContextProvider = ({ children }) => {
         createBarrio,
         getBarrio,
         updateBarrio,
-        CargaBarrios,
+        setBarrios,
       }}
     >
       {children}
