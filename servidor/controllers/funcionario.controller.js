@@ -11,6 +11,8 @@ export const getFuncionario = async (req, res) => {
             msg: "Funcionario no encontrada",
             });
         }
+         
+        
         res.json(result[0]);
         } catch (error) {
         return res.status(500).json({
@@ -23,6 +25,7 @@ export const getFuncionarios = async (req, res) => {
         const [result] = await pool.query(
           "SELECT * FROM funcionarios where eliminado = 0"
         );
+        
         res.json(result);
         } catch (error) {
         return res.status(500).json({
