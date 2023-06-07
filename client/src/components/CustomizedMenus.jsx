@@ -97,6 +97,16 @@ export default function CustomizedMenus() {
           Profesion
         </Button>
         </MenuItem>
+        <MenuItem onClick={handleClose}  disableRipple>
+         <Button href='/funcionarios/new' sx={{ flexGrow: 1 }}>
+          Funcionario
+        </Button>
+        </MenuItem>
+        <MenuItem onClick={handleClose}  disableRipple>
+         <Button href='/clientes/new' sx={{ flexGrow: 1 }}>
+          Cliente
+        </Button>
+        </MenuItem>
       </StyledMenu>
     </div>
   );
