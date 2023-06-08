@@ -16,7 +16,7 @@ export default function ClienteItem({ cliente }) {
             <h3>{cliente.nombre}</h3>
             <p>{cliente.RUC}</p>
             <p>{cliente.fechaNac}</p>
-            <p>{cliente.deleteCliente}</p>
+            <p>{cliente.direccion}</p>
             <p>{cliente.barrio}</p>
             <p>{cliente.ciudad}</p>
             <p>{cliente.profesion}</p>
