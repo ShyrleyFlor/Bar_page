@@ -41,7 +41,16 @@ export const createFuncionario = async (req, res) => {
             "INSERT INTO `funcionarios` (`salarioBase`,`ips`,`estado`,`telefono`,`direccion`,`fechaNac`,`eliminado`,`funcionario`) VALUES (?,?,?,?,?,?,'0',?)",
             [salarioBase, ips, estado, telefono, direccion, fechaNac, funcionario]
         )
-        res.json(result);
+        res.json({
+            id: result.insertId,
+            salarioBase,
+            ips,
+            estado,
+            telefono,
+            direccion,
+            fechaNac,
+            funcionario
+        });
 
     }catch(error){
         return res.status(500).json({

@@ -39,6 +39,24 @@ export const createCliente = async (req, res) => {
             "INSERT INTO `clientes` (`nombre`,`RUC`,`fechaNac`,`direccion`,`barrioID`,`ciudadID`,`profesionID`,`telefono`,`deuda`,`funcionarioID`,`modificadoPor`,`ci`,`factura`,`mail`,`eliminado` ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,'0')",
             [nombre, RUC, fechaNac, direccion, barrioID, ciudadID, profesionID, telefono, deuda, funcionarioID, modificadoPor, ci, factura, mail]
         )
+        res.json({
+            id: result.insertId,
+            nombre,
+            RUC,
+            fechaNac,
+            direccion,
+            barrioID,
+            ciudadID,
+            profesionID,
+            telefono,
+            deuda,
+            funcionarioID,
+            modificadoPor,
+            ci,
+            factura,
+            mail
+        });
+
 
     }catch(error){
         return res.status(500).json({
