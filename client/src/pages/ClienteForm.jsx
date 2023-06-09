@@ -16,11 +16,17 @@ export default function ClienteForm() {
   const { createCliente, getCliente, updateCliente } = useClientes();
   const [cliente, setCliente] = useState({
     nombre: "",
+    RUC: "",
+    fechaNac: "",
+    direccion: "",
     barrioID: "",
     ciudadID: "",
     profesionID: "",
     funcionarioID: "",
     modificadoPor: "",
+    telefono: "",
+    
+    mail: "",
   });
 
   const params = useParams();
@@ -32,11 +38,15 @@ export default function ClienteForm() {
         const cliente = await getCliente(params.id);
         setCliente({
           nombre: cliente.nombre,
+          RUC: cliente.RUC,
+          direccion: cliente.direccion,
+          fechaNac: cliente.fechaNac,
           barrioID: cliente.barrioID,
           ciudadID: cliente.ciudadID,
           profesionID: cliente.profesionID,
           funcionarioID: cliente.funcionarioID,
           modificadoPor: cliente.modificadoPor,
+          mail: cliente.mail,
         });
       }
     };
@@ -85,11 +95,15 @@ export default function ClienteForm() {
             window.location.reload();
             setCliente({
               nombre: "",
+              RUC: "",
+              fechaNac: "",
+              direccion: "",
               barrioID: "",
               ciudadID: "",
               profesionID: "",
               funcionarioID: "",
               modificadoPor: "",
+              mail: "",
             });
           }}
         >
@@ -101,6 +115,29 @@ export default function ClienteForm() {
                 placeholder="Escribe un Nombre"
                 onChange={handleChange}
                 value={values.nombre}
+              />
+              <Input
+                type="text"
+                name="RUC"
+                placeholder="Escribe un RUC"
+                onChange={handleChange}
+                value={values.RUC}
+              />
+              <Box mt={2} mb={2}>
+                <Input
+                  type="date"
+                  name="fechaNac"
+                  placeholder="Escribe una Fecha de Nacimiento"
+                  onChange={handleChange}
+                  value={values.fechaNac}
+                />
+              </Box>
+              <Input
+                type="text"
+                name="direccion"
+                placeholder="Escribe una Direccion"
+                onChange={handleChange}
+                value={values.direccion}
               />
               {/*--------------------------- barrio------------------------ */}
               <Box mt={2} mb={2}>
@@ -145,48 +182,87 @@ export default function ClienteForm() {
               </Box>
               {/*--------------------------- profesion------------------------ */}
               <Box mt={2} mb={2}>
-              <FormControl sx={{ minWidth: 200 }}>
-                <InputLabel>Profesion</InputLabel>
-                <Select
-                  name="profesionID"
-                  onChange={handleChange}
-                  value={values.profesionID}
-                >
-                  <MenuItem value="" disabled>
-                    Selecciona una profesion
-                  </MenuItem>
-                  {profesiones.map((profesion) => (
-                    <MenuItem key={profesion.id} value={profesion.id}>
-                      {profesion.profesion}
+                <FormControl sx={{ minWidth: 200 }}>
+                  <InputLabel>Profesion</InputLabel>
+                  <Select
+                    name="profesionID"
+                    onChange={handleChange}
+                    value={values.profesionID}
+                  >
+                    <MenuItem value="" disabled>
+                      Selecciona una profesion
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+                    {profesiones.map((profesion) => (
+                      <MenuItem key={profesion.id} value={profesion.id}>
+                        {profesion.profesion}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Box>
 
               {/*--------------------------- funcionario------------------------ */}
               <Box mt={2} mb={2}>
-              <FormControl sx={{ minWidth: 200 }}>
-                <InputLabel>Funcionario</InputLabel>
-                <Select
-                  name="funcionarioID"
-                  onChange={handleChange}
-                  value={values.funcionarioID}
-                >
-                  <MenuItem value="" disabled>
-                    Selecciona un funcionario
-                  </MenuItem>
-                  {funcionarios.map((funcionario) => (
-                    <MenuItem key={funcionario.id} value={funcionario.id}>
-                      {funcionario.funcionario}
+                <FormControl sx={{ minWidth: 200 }}>
+                  <InputLabel>Funcionario</InputLabel>
+                  <Select
+                    name="funcionarioID"
+                    onChange={handleChange}
+                    value={values.funcionarioID}
+                  >
+                    <MenuItem value="" disabled>
+                      Selecciona un funcionario
                     </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
+                    {funcionarios.map((funcionario) => (
+                      <MenuItem key={funcionario.id} value={funcionario.id}>
+                        {funcionario.funcionario}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Box>
 
               <Input
+                type="number"
+                name="telefono"
+                placeholder="Escribe un Telefono"
+                onChange={handleChange}
+                value={values.telefono}
+              />
+
+              <Input
+                type="number"
+                name="deuda"
+                placeholder="Escribe una Deuda"
+                onChange={handleChange}
+                value={values.deuda}
+              />
+              <Input
                 type="text"
+                name="ci"
+                placeholder="Escribe un CI"
+                onChange={handleChange}
+                value={values.ci}
+              />
+
+              <Input
+                type="text"
+                name="factura"
+                placeholder="Escribe una Factura"
+                onChange={handleChange}
+                value={values.factura}
+              />
+
+              <Input
+                type="text"
+                name="mail"
+                placeholder="Escribe un Email"
+                onChange={handleChange}
+                value={values.mail}
+              />
+
+              <Input
+                type="number"
                 name="modificadoPor"
                 placeholder="Escribe un Modificado Por"
                 onChange={handleChange}
