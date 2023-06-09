@@ -38,10 +38,15 @@ export default function ClienteForm() {
     const loadCliente = async () => {
       if (params.id) {
         const cliente = await getCliente(params.id);
+        const date = new Date(cliente.fechaNac);
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+        const day = date.getDate();
+        const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
         setCliente({
           nombre: cliente.nombre,
           RUC: cliente.RUC,
-          fechaNac: cliente.fechaNac,
+          fechaNac: formattedDate,
           direccion: cliente.direccion,
           barrioID: cliente.barrioID,
           ciudadID: cliente.ciudadID,
@@ -222,7 +227,7 @@ export default function ClienteForm() {
                     </MenuItem>
                     {funcionarios.map((funcionario) => (
                       <MenuItem key={funcionario.id} value={funcionario.id}>
-                        {funcionario.nombre}
+                        {funcionario.funcionario}
                       </MenuItem>
                     ))}
                     
