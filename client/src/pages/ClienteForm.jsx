@@ -22,10 +22,12 @@ export default function ClienteForm() {
     barrioID: "",
     ciudadID: "",
     profesionID: "",
+    telefono: "",
+    deuda: "",
     funcionarioID: "",
     modificadoPor: "",
-    telefono: "",
-    
+    ci: "",
+    factura: "",
     mail: "",
   });
 
@@ -39,13 +41,17 @@ export default function ClienteForm() {
         setCliente({
           nombre: cliente.nombre,
           RUC: cliente.RUC,
-          direccion: cliente.direccion,
           fechaNac: cliente.fechaNac,
+          direccion: cliente.direccion,
           barrioID: cliente.barrioID,
           ciudadID: cliente.ciudadID,
           profesionID: cliente.profesionID,
+          telefono: cliente.telefono,
+          deuda: cliente.deuda,
           funcionarioID: cliente.funcionarioID,
           modificadoPor: cliente.modificadoPor,
+          ci: cliente.ci,
+          factura: cliente.factura,
           mail: cliente.mail,
         });
       }
@@ -103,6 +109,7 @@ export default function ClienteForm() {
               profesionID: "",
               funcionarioID: "",
               modificadoPor: "",
+              ci: "",
               mail: "",
             });
           }}
@@ -139,7 +146,7 @@ export default function ClienteForm() {
                 onChange={handleChange}
                 value={values.direccion}
               />
-              {/*--------------------------- barrio------------------------ */}
+              {/* --------------------------- barrio------------------------ */}
               <Box mt={2} mb={2}>
                 <FormControl sx={{ minWidth: 200 }} spacing={20}>
                   <InputLabel>Barrio</InputLabel>
@@ -215,9 +222,10 @@ export default function ClienteForm() {
                     </MenuItem>
                     {funcionarios.map((funcionario) => (
                       <MenuItem key={funcionario.id} value={funcionario.id}>
-                        {funcionario.funcionario}
+                        {funcionario.nombre}
                       </MenuItem>
                     ))}
+                    
                   </Select>
                 </FormControl>
               </Box>
