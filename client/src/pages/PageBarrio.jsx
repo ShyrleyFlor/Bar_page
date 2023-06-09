@@ -24,6 +24,7 @@ export default function PageBarrio() {
     <>
       <h1>Barrios</h1>
       <Box mt={2}>{renderBarrio()}</Box>
+      
     </>
   );
 }
