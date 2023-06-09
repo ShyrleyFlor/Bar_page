@@ -16,8 +16,7 @@ export const getClientes = async (req, res) => {
 export const getCliente = async (req, res) => {
     try {
         const [result] = await pool.query(
-          "SELECT c.id, c.nombre, c.RUC, c.fechaNac, c.direccion, b.barrio, ciu.ciudad, p.profesion, c.telefono, c.deuda, f.funcionario, c.creadoFecha, fs.funcionario AS modificadoPor, c.ci, c.factura, c.mail FROM clientes c JOIN ciudad ciu ON ciu.id = c.ciudadID JOIN barrio b ON b.id = c.barrioID JOIN profesion p ON p.id = c.profesionID LEFT JOIN funcionarios AS f ON f.id = c.funcionarioID LEFT JOIN funcionarios AS fs ON fs.id = c.modificadoPor WHERE c.id = ?",
-          [req.params.id]
+          "SELECT * FROM clientes WHERE id = ?"
         );
         if (result.length === 0) {
             return res.status(404).json({
