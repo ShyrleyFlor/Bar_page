@@ -6,28 +6,29 @@ import EditIcon from "@mui/icons-material/Edit";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { useClientes } from "../context/ClienteContext";
+import { TableCell, TableRow } from "@mui/material";
 
 export default function ClienteItem({ cliente }) {
     const navigate = useNavigate();
     const { deleteCliente } = useClientes();
 
     return (
-        <Box margin={2}>
-            <h3>{cliente.nombre}</h3>
-            <p>{cliente.RUC}</p>
-            <p>{cliente.fechaNac}</p>
-            <p>{cliente.direccion}</p>
-            <p>{cliente.barrio}</p>
-            <p>{cliente.ciudad}</p>
-            <p>{cliente.profesion}</p>
-            <p>{cliente.telefono}</p>
-            <p>{cliente.deuda}</p>
-            <p>{cliente.funcionario}</p>
-            <p>{cliente.creadoFecha}</p>
-            <p>{cliente.modificadoPor}</p>
-            <p>{cliente.ci}</p>
-            <p>{cliente.factura}</p>
-            <p>{cliente.mail}</p>
+        <TableRow key={cliente.id}>
+            <TableCell>{cliente.nombre}</TableCell>
+            <TableCell>{cliente.RUC}</TableCell>
+            <TableCell>{cliente.fechaNac}</TableCell>
+            <TableCell>{cliente.direccion}</TableCell>
+            <TableCell>{cliente.barrio}</TableCell>
+            <TableCell>{cliente.ciudad}</TableCell>
+            <TableCell>{cliente.profesion}</TableCell>
+            <TableCell>{cliente.telefono}</TableCell>
+            <TableCell>{cliente.deuda}</TableCell>
+            <TableCell>{cliente.funcionario}</TableCell>
+            <TableCell>{cliente.creadoFecha}</TableCell>
+            <TableCell>{cliente.modificadoPor}</TableCell>
+            <TableCell>{cliente.ci}</TableCell>
+            <TableCell>{cliente.factura}</TableCell>
+            <TableCell>{cliente.mail}</TableCell>
             <Stack spacing={2} direction="row">
                 <Button
                     onClick={() => deleteCliente(cliente.id)}
@@ -46,6 +47,6 @@ export default function ClienteItem({ cliente }) {
                     Editar
                 </Button>
             </Stack>
-        </Box>
+        </TableRow>
     )
 }
