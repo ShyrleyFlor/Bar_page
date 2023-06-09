@@ -16,7 +16,8 @@ export const getClientes = async (req, res) => {
 export const getCliente = async (req, res) => {
     try {
         const [result] = await pool.query(
-          "SELECT * FROM clientes WHERE id = ?"
+          "SELECT * FROM clientes WHERE id = ?",
+          [req.params.id]
         );
         if (result.length === 0) {
             return res.status(404).json({
