@@ -26,7 +26,7 @@ export const getFuncionarios = async (req, res) => {
           "SELECT * FROM funcionarios where eliminado = 0"
         );
         
-        res.json(result[0]);
+        res.json(result);
         } catch (error) {
         return res.status(500).json({
             message: error.message,
