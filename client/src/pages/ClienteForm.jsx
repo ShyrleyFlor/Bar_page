@@ -43,6 +43,8 @@ export default function ClienteForm() {
         const month = date.getMonth() + 1;
         const day = date.getDate();
         const formattedDate = `${year}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
+
+
         setCliente({
           nombre: cliente.nombre,
           RUC: cliente.RUC,
