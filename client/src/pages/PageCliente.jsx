@@ -34,7 +34,7 @@ export default function PageCliente() {
   return (
     <>
       <h1>Clientes</h1>
-      <TableContainer component={Paper} borderRadius={16} overflow="hidden">
+      <TableContainer component={Paper}  overflow="hidden">
         <Table >
           <TableHead >
             <TableRow >

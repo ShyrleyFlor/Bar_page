@@ -6,6 +6,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
+import { TableCell, TableRow } from "@mui/material";
+
 
 function FuncionarioItem({ funcionario }) {
     const { deleteFuncionario } = useFuncionarios();
@@ -18,18 +20,17 @@ function FuncionarioItem({ funcionario }) {
     const formattedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
     
     return (
-        <Box margin={2}>
-            <h3>{funcionario.funcionario}</h3>
-            <p>{funcionario.salarioBase}</p>
-            <p>{funcionario.ips}</p>
-            <p>{funcionario.estado}</p>
-            <p>{funcionario.telefono}</p>
-            <p>{funcionario.direccion}</p>
-            <p>{formattedDate}</p>
-            <p>{funcionario.fechaCreacion}</p>
-            
-            <Stack spacing={2} direction="row">
-                <Button
+        <TableRow key={funcionario.id}>
+            <TableCell>{funcionario.funcionario}</TableCell>
+            <TableCell>{funcionario.salarioBase}</TableCell>
+            <TableCell>{funcionario.ips}</TableCell>
+            <TableCell>{funcionario.estado}</TableCell>
+            <TableCell>{funcionario.telefono}</TableCell>
+            <TableCell>{funcionario.direccion}</TableCell>
+            <TableCell>{formattedDate}</TableCell>
+            <TableCell>{funcionario.fechaCreacion}</TableCell>
+            <TableCell>
+            <Button
                     onClick={() => deleteFuncionario(funcionario.id)}
                     variant="contained"
                     size="small"
@@ -37,7 +38,9 @@ function FuncionarioItem({ funcionario }) {
                 >
                     Eliminar
                 </Button>
-                <Button
+            </TableCell>
+            <TableCell>
+            <Button
                     onClick={() => navigate(`/funcionarios/${funcionario.id}`)}
                     variant="contained"
                     size="small"
@@ -45,8 +48,11 @@ function FuncionarioItem({ funcionario }) {
                 >
                     Editar
                 </Button>
-            </Stack>
-        </Box>
+            </TableCell>
+               
+                
+            
+        </TableRow>
     )
 }
 
