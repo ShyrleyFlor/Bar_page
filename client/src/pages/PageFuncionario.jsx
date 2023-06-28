@@ -4,14 +4,15 @@ import Box from "@mui/material/Box";
 import FuncionarioItem from "../components/FuncionarioItem";
 import { useFuncionarios } from "../context/FuncionarioContext";
 import {
-    Table,
-    TableContainer,
-    TableHead,
-    TableRow,
-    TableCell,
-    TableBody,
-  } from "@mui/material";
-  import Paper from "@mui/material/Paper";
+  Table,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+  Button,
+} from "@mui/material";
+import Paper from "@mui/material/Paper";
 
 export default function PageFuncionario() {
   const { funcionarios, CargaFuncionarios } = useFuncionarios();
@@ -29,8 +30,20 @@ export default function PageFuncionario() {
   }
   return (
     <>
-      <h1>Funcionarios</h1>
-      <TableContainer component={Paper}  overflow="hidden">
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <h1>Funcionarios</h1>
+        <Box>
+          <Button
+            style={{ margin: "8px" }}
+            href="/Funcionarios/new"
+            sx={{ flexGrow: 1 }}
+            variant="contained"
+          >
+            Crear
+          </Button>
+        </Box>
+      </Box>
+      <TableContainer component={Paper} overflow="hidden">
         <Table>
           <TableHead>
             <TableRow>

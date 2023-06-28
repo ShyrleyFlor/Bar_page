@@ -28,7 +28,9 @@ export default function ProfesionForm() {
   }, []);
 
   return (
-    <div>
+    <Box display="flex" flexDirection="column" alignItems="center">
+    <Box borderRadius={5} m= {2} padding={2} width="400px" bgcolor="#f6f5f5"  >
+      
       <h1>{params.id ? "Editar Profesion" : "Crear Profesion"}</h1>
       <Box margin={2}>
         <Formik
@@ -52,6 +54,8 @@ export default function ProfesionForm() {
           {({ handleChange, handleSubmit, values }) => (
             <Form onSubmit={handleSubmit}>
               <Input
+              inputProps={{ style: { fontSize: "18px", width: "300px" } }}
+              style={{ margin: "16px" }}
                 type="text"
                 name="profesion"
                 placeholder="Escriba una Profesion"
@@ -59,13 +63,14 @@ export default function ProfesionForm() {
                 value={values.profesion}
               />
 
-              <Button endIcon={<SendIcon />} type="submit">
+              <Button variant="contained"endIcon={<SendIcon />} type="submit">
                 Enviar
               </Button>
             </Form>
           )}
         </Formik>
       </Box>
-    </div>
+    </Box>
+    </Box>
   );
 }

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import Box from "@mui/material/Box";
 import BarrioItem from "../components/BarrioItem";
 import { useBarrios } from "../context/BarrioContext";
-
+import { Button } from "@mui/material";
 
 export default function PageBarrio() {
   const { barrios, CargaBarrios } = useBarrios();
@@ -21,10 +21,12 @@ export default function PageBarrio() {
     ));
   }
   return (
-    <>
-      <h1>Barrios</h1>
-      <Box mt={2}>{renderBarrio()}</Box>
+    <Box display="flex" flexDirection="column" alignItems="center">
       
-    </>
+        <h1>Barrios</h1>
+        <Button href='/Barrios/new' sx={{ flexGrow: 1 }} variant="contained">Crear</Button>
+      
+      <Box>{renderBarrio()}</Box>
+    </Box>
   );
 }

@@ -28,40 +28,49 @@ export default function CiudadForm() {
     loadCiudad();
   }, []);
   return (
-    <div>
-      <h1>{params.id ? "Editar Ciudad" : "Crear Ciudad"}</h1>
-      <Box margin={2}>
-      <Formik
-        initialValues={ciudad}
-        enableReinitialize={true}
-        onSubmit={async (values) => {
-          if (params.id) {
-            await updateCiudad(params.id, values);
-          } else {
-            await createCiudad(values);
-          }
-          navigate("/ciudades");
-          window.location.reload();
-          setCiudad({
-            ciudad: "",
-          });
-        }}
-      >
-        {({ handleChange, handleSubmit, values }) => (
-          <Form onSubmit={handleSubmit}>
-            
-            <Input
-              type="text"
-              name="ciudad"
-              placeholder="Escribe una Ciudad"
-              onChange={handleChange}
-              value={values.ciudad}
-            />
-            <Button endIcon={<SendIcon />} type="submit">Guardar</Button>
-          </Form>
-        )}
-      </Formik>
+    <Box display="flex" flexDirection="column" alignItems="center">
+      <Box borderRadius={5} m={2} padding={2} width="400px" bgcolor="#f6f5f5">
+        <h1>{params.id ? "Editar Ciudad" : "Crear Ciudad"}</h1>
+        <Box margin={2}>
+          <Formik
+            initialValues={ciudad}
+            enableReinitialize={true}
+            onSubmit={async (values) => {
+              if (params.id) {
+                await updateCiudad(params.id, values);
+              } else {
+                await createCiudad(values);
+              }
+              navigate("/ciudades");
+              window.location.reload();
+              setCiudad({
+                ciudad: "",
+              });
+            }}
+          >
+            {({ handleChange, handleSubmit, values }) => (
+              <Form onSubmit={handleSubmit}>
+                <Input
+                  inputProps={{ style: { fontSize: "18px", width: "300px" } }}
+                  style={{ margin: "16px" }}
+                  type="text"
+                  name="ciudad"
+                  placeholder="Escribe una Ciudad"
+                  onChange={handleChange}
+                  value={values.ciudad}
+                />
+                <Button
+                  variant="contained"
+                  endIcon={<SendIcon />}
+                  type="submit"
+                >
+                  Guardar
+                </Button>
+              </Form>
+            )}
+          </Formik>
+        </Box>
       </Box>
-    </div>
+    </Box>
   );
 }

@@ -35,7 +35,7 @@ function Nar() {
           <Button href="/profesiones" color="inherit">Profesion</Button>
           <Button href="/funcionarios" color="inherit">Funcionario</Button>
           <Button href="/clientes" color="inherit">Cliente</Button>
-          <CustomizedMenus/>
+          {/* <CustomizedMenus/> */}
         </Toolbar>
       </AppBar>
 

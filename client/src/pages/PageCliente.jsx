@@ -10,6 +10,8 @@ import {
   TableRow,
   TableCell,
   TableBody,
+  Button,
+  Box,
 } from "@mui/material";
 import Paper from "@mui/material/Paper";
 
@@ -29,15 +31,25 @@ export default function PageCliente() {
     ));
   }
 
-
-  
   return (
     <>
-      <h1>Clientes</h1>
-      <TableContainer component={Paper}  overflow="hidden">
-        <Table >
-          <TableHead >
-            <TableRow >
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <h1>Clientes</h1>
+        <Box>
+          <Button
+            style={{ margin: "8px" }}
+            href="/Clientes/new"
+            sx={{ flexGrow: 1 }}
+            variant="contained"
+          >
+            Crear
+          </Button>
+        </Box>
+      </Box>
+      <TableContainer component={Paper} overflow="hidden">
+        <Table>
+          <TableHead>
+            <TableRow>
               <TableCell>Nombre</TableCell>
               <TableCell>RUC</TableCell>
               <TableCell>Fecha de nacimiento</TableCell>
@@ -57,9 +69,7 @@ export default function PageCliente() {
               <TableCell></TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
-            {renderCliente()}
-          </TableBody>
+          <TableBody>{renderCliente()}</TableBody>
         </Table>
       </TableContainer>
     </>

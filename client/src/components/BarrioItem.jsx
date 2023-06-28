@@ -6,13 +6,14 @@ import EditIcon from "@mui/icons-material/Edit";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { useBarrios } from "../context/BarrioContext";
+import { Paper } from "@mui/material";
 
 export default function BarrioItem({ barrio }) {
   const navigate = useNavigate();
   const { deleteBarrio } = useBarrios();
 
   return (
-    <Box margin={2}>
+    <Box  borderRadius={5} m= {2} padding={2} width="400px" bgcolor="#f6f5f5" >
       <h3>{barrio.barrio}</h3>
       <Stack spacing={2} direction="row">
         <Button

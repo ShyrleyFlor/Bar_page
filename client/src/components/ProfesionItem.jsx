@@ -12,7 +12,7 @@ function ProfesionItem({ profesion }) {
   const navigate = useNavigate();
 
   return (
-    <Box margin={2}>
+    <Box  borderRadius={5} m= {2} padding={2} width="400px" bgcolor="#f6f5f5" >
       <h3>{profesion.profesion}</h3>
       <Stack spacing={2} direction="row">
         <Button

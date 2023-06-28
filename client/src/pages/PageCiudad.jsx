@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import CiudadItem from "../components/CiudadItem";
 import { useCiudades } from "../context/CiudadContext";
+import { Box, Button } from "@mui/material";
 
 export default function PageCiudad() {
   const { ciudades, CargaCiudades } = useCiudades();
@@ -20,9 +21,11 @@ export default function PageCiudad() {
   }
 
   return (
-    <>
+    <Box display="flex" flexDirection="column" alignItems="center">
       <h1>Ciudades</h1>
-      {renderCiudad()}
-    </>
+      <Button href='/Ciudades/new' sx={{ flexGrow: 1 }} variant="contained">Crear</Button>
+
+      <Box>{renderCiudad()}</Box>
+    </Box>
   );
 }
